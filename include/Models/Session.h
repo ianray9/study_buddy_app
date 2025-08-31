@@ -12,6 +12,7 @@ struct Session {
     Availability timeSlot;
 
     std::string toString() const;
+    std::string toData() const;
 };
 
 #endif // SESSION_H

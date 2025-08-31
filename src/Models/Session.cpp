@@ -1,4 +1,5 @@
 #include <sstream>
+#include <string>
 #include "Models/Session.h"
 #include "utils/Color.h"
 
@@ -34,3 +35,28 @@ std::string Session::toString() const {
     return sessionOut.str();
 }
 
+std::string Session::toData() const {
+    std::ostringstream sessionData;
+    sessionData << sessionID << ",";
+
+    // Write student names
+    sessionData << "\"";
+    for (size_t i = 0; i < studentNames.size(); i++) {
+        sessionData << studentNames[i];
+        if (i != studentNames.size() - 1) {
+            sessionData << ";";
+        }
+    }
+    sessionData << "\",";
+
+    sessionData << course << ",";
+
+    // Time
+    sessionData << "\"";
+    sessionData << timeSlot.toData();
+    sessionData << "\"";
+
+    sessionData << "\n";
+
+    return sessionData.str();
+}

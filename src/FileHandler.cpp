@@ -5,8 +5,10 @@
 #include "FileHandler.h"
 #include "Models/Student.h"
 #include "Models/Availability.h"
+#include "Models/Session.h"
 #include "third_party/csv.hpp"
 
+// Helper Funciton to split list into tokens
 std::vector<std::string> splitList(const std::string& in, char delim) {
     std::vector<std::string> tokens;
     std::stringstream csvList;
@@ -17,6 +19,39 @@ std::vector<std::string> splitList(const std::string& in, char delim) {
         tokens.push_back(entry);
 
     return tokens;
+}
+
+std::vector<Session> FileHandler::loadSessions() {
+    std::vector<Session> sessions;
+    csv::CSVReader reader(AVAILABILITY_PATH, csv::CSVFormat().header_row(0));
+
+    for (csv::CSVRow& row : reader) {
+        // Get data from csv style rows
+        std::string id = row["SessionID"].get<>();
+        std::string namesStr = row["Students"].get<>();
+        std::string course = row["Course"].get<>();
+        std::string availabilityStr = row["Time"].get<>();
+
+        std::vector<std::string> names = splitList(namesStr, ';');
+
+        // Create availability stuct based on time data in file
+        std::vector<std::string> tokens = splitList(availabilityStr, ';');
+        Availability availability = {tokens[0], std::stoi(tokens[1]), std::stoi(tokens[2])};
+
+        sessions.push_back(Session{id, names, course, availability});
+    }
+
+    return sessions;
+}
+
+void FileHandler::saveSessions(const std::vector<Session>& sessions) {
+    std::ofstream sessionFile(AVAILABILITY_PATH);
+    sessionFile << "SessionID,Students,Course,Time\n";
+
+    for (Session session : sessions)
+        sessionFile << session.toData();
+
+    sessionFile.close();
 }
 
 std::vector<Student> FileHandler::loadProfiles() {

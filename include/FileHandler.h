@@ -28,17 +28,15 @@ class FileHandler {
 
     /**
      * @brief Loads scheduled study sessions from a specified file.
-     * @param filename The path to the sessions file.
      * @return A vector containing all loaded Session objects.
      */
-    std::vector<Session> loadSessions(const std::string& filename);
+    std::vector<Session> loadSessions();
 
     /**
      * @brief Saves all scheduled study sessions to a specified file.
      * @param sessions The vector of Session objects to save.
-     * @param filename The path to the sessions file.
      */
-    void saveSessions(const std::vector<Session>& sessions, const std::string& filename);
+    void saveSessions(const std::vector<Session>& sessions);
 };
 
 #endif // FILE_HANDLER_H
