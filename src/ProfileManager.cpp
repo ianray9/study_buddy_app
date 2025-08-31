@@ -90,9 +90,9 @@ std::vector<Availability> ProfileManager::getTimes() {
 }
 
 Student ProfileManager::createProfile() {
-    std::cout << BOLD_BLUE << "+==============+" << "\n";
-    std::cout << "|Create Profile|" << "\n";
-    std::cout << "+==============+" << RESET << "\n";
+    std::cout << BOLD_BLUE << "+================+" << "\n";
+    std::cout << "| Create Profile |" << "\n";
+    std::cout << "+================+" << RESET << "\n";
 
     // Get unique id for profile
     std::ifstream idFileIn(ID_PATH);
@@ -124,10 +124,75 @@ Student ProfileManager::createProfile() {
     std::vector<Availability> times = getTimes();
 
     // Show user profile created
-    Student newStudent = {name, id, courses, times};
-    std::cout << "\nProfile Created:\n";
+    Student newStudent = {id, name, courses, times};
+    std::cout << "\nYour New Profile:\n";
     std::cout << newStudent.toString() << "\n";
     std::cout << "*if you want to make changes to this now or in the future, choose the menu profile edit option\n";
 
     return newStudent;
+}
+
+
+void ProfileManager::editProfile(Student& student) {
+    std::cout << BOLD_BLUE << "+==============+" << "\n";
+    std::cout << "| Edit Profile |" << "\n";
+    std::cout << "+==============+" << RESET << "\n";
+
+    std::cout << "What would you like to edit?\n";
+    std::cout << "1. Name\n";
+    std::cout << "2. Enrolled Courses\n";
+    std::cout << "3. Availability\n";
+    std::cout << "4. All\n";
+    std::cout << "5. Cancel\n";
+
+    // Get what data the user whats to change
+    int choice;
+    std::cout << YELLOW << "Choice: " << RESET;
+    std::cin >> choice;
+
+    // flush input buffer
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::cout << std::endl;
+
+    switch (choice) {
+        case 1: {
+            std::string newName;
+            std::cout << YELLOW << "Enter new name: " << RESET;
+            std::getline(std::cin, newName);
+            student.name = newName;
+            std::cout << GREEN << "Name updated.\n" << RESET;
+            break;
+        }
+        case 2: {
+            student.courses = getCourses();
+            std::cout << GREEN << "Courses updated.\n" << RESET;
+            break;
+        }
+        case 3: {
+            student.availability = getTimes();
+            std::cout << GREEN << "Availability updated.\n" << RESET;
+            break;
+        }
+        case 4: {
+            std::string newName;
+            std::cout << YELLOW << "Enter new name: " << RESET;
+            std::getline(std::cin, newName);
+            student.name = newName;
+            student.courses = getCourses();
+            student.availability = getTimes();
+            std::cout << GREEN << "Profile fully updated.\n" << RESET;
+            break;
+        }
+        case 5: {
+            std::cout << CYAN << "Edit canceled.\n" << RESET;
+            break;
+        }
+        default:
+            std::cout << RED << "Invalid choice.\n" << RESET;
+    }
+
+    // Show updated profile
+    std::cout << "\nYour Updated Profile:\n";
+    std::cout << student.toString() << "\n";
 }
