@@ -20,3 +20,10 @@ std::string Availability::toData() const {
 
     return timeData.str();
 }
+
+bool Availability::overlapsWith(const Availability& other) const {
+    if (day != other.day) {
+        return false; 
+    }
+    return (startHour < other.endHour && endHour > other.startHour);
+}
