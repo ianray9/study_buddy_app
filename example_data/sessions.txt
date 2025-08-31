@@ -1,0 +1,6 @@
+SessionID,Students,Course,Time
+S001,"Alice Johnson;Frank Zhang",CS101,"Mon;9;11"
+S002,"Clara Adams;Grace Kim",MATH202,"Wed;14;16"
+S003,"Bob Smith;Eva Green",HIST100,"Thu;13;15"
+S004,"David Lee;Henry Wu",PHYS101,"Wed;10;12"
+AlClMATH202,"Alice Johnson;Clara Adams",MATH202,"Wed;14;16"
