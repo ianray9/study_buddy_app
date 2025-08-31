@@ -2,7 +2,7 @@
 #define FILE_HANDLER_H
 
 #define PROFILE_PATH "data/profiles.txt"
-#define AVAILABILITY_PATH "data/availability.txt"
+#define AVAILABILITY_PATH "data/sessions.txt"
 
 #include <vector>
 #include <string>

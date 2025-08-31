@@ -12,20 +12,19 @@
  * @brief Manages creation and editing of student profiles.
  */
 class ProfileManager {
- private:
-    /**
+ public:
+   /**
      * @brief Helper function to prompt user for enrolled courses.
      * @return List of enrolled courses
      */
     std::vector<std::string> getCourses();
 
-    /**
+   /**
      * @brief Helper function to prompt user for time availability
      * @return List of times the user is available
      */
     std::vector<Availability> getTimes();
 
- public:
     /**
      * @brief Creates a new student profile by gathering user input.
      * @return A newly created Student object.

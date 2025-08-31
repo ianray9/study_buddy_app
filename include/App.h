@@ -6,7 +6,6 @@
 
 // Managers
 #include "ProfileManager.h"
-#include "AvailabilityManager.h"
 #include "PartnerMatcher.h"
 #include "SessionScheduler.h"
 #include "FileHandler.h"
@@ -24,20 +23,15 @@
  */
 class App {
  private:
-    std::vector<Student> students;       ///< All loaded student profiles
-    std::vector<Session> sessions;       ///< All scheduled study sessions
-    Student* currentStudent = nullptr;   ///< Currently logged-in student
+    std::vector<Student> students;
+    std::vector<Session> sessions;
+    Student* currentStudent = nullptr;
 
     // Manager Instances
     ProfileManager profileManager;
-    AvailabilityManager availabilityManager;
     PartnerMatcher partnerMatcher;
     SessionScheduler sessionScheduler;
     FileHandler fileHandler;
-
-    // File paths (can be constants or configurable later)
-    const std::string profilesFile = "profiles.txt";
-    const std::string sessionsFile = "sessions.txt";
 
  public:
     /**
@@ -67,11 +61,6 @@ class App {
     void handleEditProfile();
 
     /**
-     * @brief Allows the current student to manage availability.
-     */
-    void handleAvailability();
-
-    /**
      * @brief Finds and displays possible study partners.
      */
     void handleSearchPartners();
@@ -90,6 +79,11 @@ class App {
      * @brief Saves all data to local files.
      */
     void saveData();
+
+    /**
+     * @brief Makes sure data files are in proper format and exist
+     */
+    void ensureDataFilesExist();
 };
 
 #endif // APP_H
