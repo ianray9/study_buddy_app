@@ -1,13 +1,30 @@
 #ifndef PROFILE_MANAGER_H
 #define PROFILE_MANAGER_H
 
+#include "Models/Availability.h"
+#define ID_PATH "data/currentID.txt"
+
 #include <vector>
+#include <string>
 #include "Models/Student.h"
 
 /**
  * @brief Manages creation and editing of student profiles.
  */
 class ProfileManager {
+ private:
+    /**
+     * @brief Helper function to prompt user for enrolled courses.
+     * @return List of enrolled courses
+     */
+    std::vector<std::string> getCourses();
+
+    /**
+     * @brief Helper function to prompt user for time availability
+     * @return List of times the user is available
+     */
+    std::vector<Availability> getTimes();
+
  public:
     /**
      * @brief Creates a new student profile by gathering user input.
