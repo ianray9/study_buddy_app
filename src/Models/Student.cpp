@@ -1,12 +1,7 @@
 #include <string>
 #include <sstream>
+#include "utils/Color.h"
 #include "Models/Student.h"
-
-// ANSI codes
-#define RESET       "\033[0m"
-#define BOLD_CYAN   "\033[1;36m"
-#define YELLOW      "\033[33m"
-#define GREEN       "\033[32m"
 
 std::string Student::toString() const {
     std::ostringstream student;

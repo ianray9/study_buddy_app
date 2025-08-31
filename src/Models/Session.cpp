@@ -1,11 +1,6 @@
 #include <sstream>
 #include "Models/Session.h"
-
-// ANSI Color Codes
-#define RESET     "\033[0m"
-#define BOLD_BLUE "\033[1;34m"
-#define MAGENTA   "\033[35m"
-#define CYAN      "\033[36m"
+#include "utils/Color.h"
 
 std::string Session::toString() const {
     std::ostringstream sessionOut;
