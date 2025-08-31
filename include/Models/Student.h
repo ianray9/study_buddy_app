@@ -12,6 +12,7 @@ struct Student {
     std::vector<Availability> availability;
 
     std::string toString() const;
+    std::string toData() const;
 };
 
 #endif // STUDENT_H

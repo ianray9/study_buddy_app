@@ -9,6 +9,7 @@ struct Availability {
     int endHour;          // e.g., 16 for 4 PM
 
     std::string toString() const;
+    std::string toData() const;
 
     bool overlapsWith(const Availability& other) const;
 };

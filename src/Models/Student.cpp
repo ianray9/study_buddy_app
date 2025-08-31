@@ -42,3 +42,35 @@ std::string Student::toString() const {
     student << "\n";
     return student.str();
 }
+
+
+std::string Student::toData() const {
+    std::ostringstream profileData;
+
+    profileData << id << ",";
+    profileData << name << ",";
+
+    // Write out Courses
+    profileData << "\"";
+    for (size_t i = 0; i < courses.size(); i++) {
+        profileData << courses[i];
+        if (i != courses.size() - 1) {
+            profileData << ";";
+        }
+    }
+    profileData << "\",";
+
+    // Write out Availability
+    profileData << "\"";
+    for (size_t i = 0; i < availability.size(); i++) {
+        profileData << availability[i].toData();
+        if (i != availability.size() - 1) {
+            profileData << ";";
+        }
+    }
+    profileData << "\"";
+
+    profileData << "\n";
+
+    return profileData.str();
+}

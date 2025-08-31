@@ -13,3 +13,10 @@ std::string Availability::toString() const {
 
     return time.str();
 }
+
+std::string Availability::toData() const {
+    std::ostringstream timeData;
+    timeData << day << ";" << startHour << ";" << endHour;
+
+    return timeData.str();
+}
