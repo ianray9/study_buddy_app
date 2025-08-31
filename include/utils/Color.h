@@ -11,4 +11,7 @@
 #define MAGENTA "\033[35m"
 #define CYAN    "\033[36m"
 
+#define BOLD_BLUE "\033[1;34m"
+#define BOLD_CYAN "\033[1;36m"
+
 #endif // COLOR_H

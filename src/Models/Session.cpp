@@ -14,7 +14,7 @@ std::string Session::toString() const {
     // Separator line
     std::ostringstream plainHeader;
     plainHeader << "Study Session: " << sessionID;
-    sessionOut << std::string(headerStr.length() + 2, '-') << "+>" << "\n";
+    sessionOut << std::string(headerStr.length() + 2, '-') << "+" << "\n";
 
     // Course
     sessionOut << MAGENTA << "Course:       " << RESET << course << "\n";
