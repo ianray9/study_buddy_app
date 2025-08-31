@@ -33,11 +33,10 @@ A terminal-based C++ application that helps students find study partners based o
     ```bash
     cmake -S . -B build
     cmake --build build
-3. **Configure and build with CMake** (MacOs/Linux)
+3. **Configure and build with CMake** (Windows)
     ```bash
     cmake -S . -B build -G "MinGW Makefiles" # Make sure you have MinGW install and in your path
     cmake --build build
-    ```
     ```
 4. Run the app (in root of project)
     ```bash
