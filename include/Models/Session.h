@@ -6,7 +6,7 @@
 #include "Availability.h"
 
 struct Session {
-    std::string sessionId;
+    std::string sessionID;
     std::vector<std::string> studentNames;
     std::string course;
     Availability timeSlot;
