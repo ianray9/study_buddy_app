@@ -38,6 +38,7 @@ A terminal-based C++ application that helps students find study partners based o
     cmake -S . -B build -G "MinGW Makefiles" # Make sure you have MinGW install and in your path
     cmake --build build
     ```
+    *Alternatively*, if this does not work for your windows machine you can use vsCode to build the app with its Cmake tools and C/C++ extensions
 4. Run the app (in root of project)
     ```bash
     ./StudyBuddyApp # MacOs/Linux
