@@ -47,8 +47,8 @@ std::string Student::toString() const {
 std::string Student::toData() const {
     std::ostringstream profileData;
 
-    profileData << id << ",";
     profileData << name << ",";
+    profileData << id << ",";
 
     // Write out Courses
     profileData << "\"";

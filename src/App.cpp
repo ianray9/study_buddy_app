@@ -102,9 +102,9 @@ void App::handleCreateOrLogin() {
         return;
     }
 
-    std::cout << BOLD_BLUE << "+==============+" << "\n";
+    std::cout << BOLD_BLUE << "+========================+" << "\n";
     std::cout << "| Create Profile / Login |" << "\n";
-    std::cout << "+==============+" << RESET << "\n\n";
+    std::cout << "+========================+" << RESET << "\n\n";
 
     std::cout << "Do you want to:\n";
     std::cout << "  [1] Create a new profile\n";

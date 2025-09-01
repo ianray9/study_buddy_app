@@ -50,7 +50,7 @@ std::vector<Availability> ProfileManager::getTimes() {
 
     // Loop getting times till user enters done
     while (true) {
-        std::cout << YELLOW << "- Day " << "(e.g. Mon., Tue., Fri.): " << RESET;
+        std::cout << YELLOW << "- Day " << "(e.g. Mon, Tue, Wed, Thr, Fri, Sat, Sun): " << RESET;
         std::getline(std::cin, input);
 
         if (input == "done") break;
